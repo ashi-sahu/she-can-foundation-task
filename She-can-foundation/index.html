@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>She Can Foundation</title>
+    <!-- Tailwind Engine with Custom Organization Palette -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        scf: {
+                            dark: '#0d0d0e',
+                            clay: '#161618',
+                            pearl: '#f4f3ef',
+                            accent: '#e27d9a',
+                            muted: '#8a8885'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- GSAP Core for Professional Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-scf-pearl text-scf-dark antialiased overflow-x-hidden">
+
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Clean Premium Transparent Header -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 lg:px-12 py-6 flex justify-between items-center mix-blend-difference text-white">
+        <div class="text-xl font-900 tracking-widest uppercase font-black whitespace-nowrap">She Can <span class="text-scf-accent">Foundation </span></div>
+
+        <button class="menu-toggle md:hidden p-2 text-white" id="menu-toggle">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+        <nav class="hidden md:flex items-center gap-12 text-xs uppercase tracking-widest font-semibold">
+            <a href="index.html" class="text-scf-accent transition-colors">Home</a>
+            <a href="about.html" class="hover:text-scf-accent transition-colors">About</a>
+            <a href="#mission" class="hover:text-scf-accent transition-colors">Mission</a>
+            <a href="#join" class="hover:text-scf-accent transition-colors">Join Us</a>
+            <a href="#join" class="border border-white/30 px-6 py-2.5 rounded-full hover:bg-white hover:text-scf-dark transition-all duration-300">Volunteer</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Nav Screen Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-scf-dark text-white z-40 flex flex-col justify-center pl-12 gap-6 text-3xl font-bold uppercase tracking-wider opacity-0 pointer-events-none transition-all duration-500">
+        <a href="index.html" class="text-scf-accent">Home</a>
+        <a href="about.html">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#join">Join Us</a>
+    </div>
+
+    <main>
+        <!-- Hero Stage Setup -->
+        <section class="min-h-screen flex flex-col justify-center px-6 lg:px-12 relative pt-24 bg-scf-dark text-white">
+            <div class="grid lg:grid-cols-12 gap-12 items-center z-10">
+                <div class="lg:col-span-7 space-y-8 gs-hero-left">
+                    <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-scf-accent">
+                        Education • Leadership • Confidence • Support
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-900 tracking-tighter leading-[0.95] uppercase font-black">
+                        Empowering Women,<br>Creating <span class="text-transparent stroke-text">Future Leaders</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-scf-muted max-w-xl font-light leading-relaxed">
+                        She Can Foundation is working towards women empowerment, education support, skill development, leadership growth, and creating opportunities for students and women.
+                    </p>
+
+                    <div class="h-6 text-sm tracking-wider uppercase text-scf-accent font-mono flex items-center gap-2">
+                        <span class="typing-text"></span><span>_</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-6 pt-4">
+                        <button class="bg-white text-scf-dark px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-scf-accent hover:text-white transition-all duration-300" onclick="showMessage()">Become Volunteer</button>
+                        <a href="#" class="border border-white/20 text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-white/10 transition-all">Donate Now</a>
+                        <a href="about.html" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-scf-accent hover:text-white transition-colors group py-4">Learn More <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></a>
+                    </div>
+                </div>
+
+                <!-- Uncropped Canvas Card -->
+                <div class="lg:col-span-5 flex justify-center relative gs-hero-right">
+                    <div class="w-full max-w-[420px] aspect-[4/5] bg-scf-clay p-6 rounded-[2rem] border border-white/5 flex flex-col justify-between">
+                        <div class="w-full h-[85%] rounded-2xl overflow-hidden bg-scf-dark/40 flex items-center justify-center">
+                            <img src="images/hero-women.avif" alt="Women Empowerment" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="flex justify-between items-center pt-4">
+                            <div>
+                                <h4 class="font-bold text-white text-base">10K+ Lives</h4>
+                                <p class="text-xs text-scf-muted">Impacted through education</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-scf-accent"><i data-lucide="arrow-up-right" class="w-5 h-5"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden whitespace-nowrap pointer-events-none opacity-[0.02] select-none z-0">
+                <div class="text-[15vw] font-black tracking-tighter uppercase leading-none">SHE CAN FOUNDATION</div>
+            </div>
+        </section>
+
+        <!-- Studio Text Running Marquee Section -->
+        <div class="bg-scf-accent text-scf-dark py-4 overflow-hidden whitespace-nowrap font-black tracking-widest text-xs uppercase flex">
+            <div class="marquee-track flex gap-8 shrink-0">
+                <span>She Can Foundation • Empowering Women • Creating Future Leaders • Education Support • Skill Development • </span>
+                <span>She Can Foundation • Empowering Women • Creating Future Leaders • Education Support • Skill Development • </span>
+            </div>
+        </div>
+
+        <!-- Premium Clean Stats Section -->
+        <section class="max-w-6xl mx-auto px-6 py-32 grid sm:grid-cols-3 gap-6">
+            <div class="gs-reveal bg-white p-12 rounded-3xl border border-slate-100 flex flex-col justify-between items-start group hover:bg-scf-dark hover:text-white transition-all duration-500 shadow-sm">
+                <h2 class="text-6xl font-black text-scf-accent tracking-tighter mb-4 counter" data-target="500">0</h2>
+                <p class="text-scf-dark group-hover:text-scf-muted text-xs font-bold tracking-widest uppercase transition-colors">Students Supported</p>
+            </div>
+            <div class="gs-reveal bg-white p-12 rounded-3xl border border-slate-100 flex flex-col justify-between items-start group hover:bg-scf-dark hover:text-white transition-all duration-500 shadow-sm">
+                <h2 class="text-6xl font-black text-scf-accent tracking-tighter mb-4 counter" data-target="100">0</h2>
+                <p class="text-scf-dark group-hover:text-scf-muted text-xs font-bold tracking-widest uppercase transition-colors">Women Empowered</p>
+            </div>
+            <div class="gs-reveal bg-white p-12 rounded-3xl border border-slate-100 flex flex-col justify-between items-start group hover:bg-scf-dark hover:text-white transition-all duration-500 shadow-sm">
+                <h2 class="text-6xl font-black text-scf-accent tracking-tighter mb-4 counter" data-target="50">0</h2>
+                <p class="text-scf-dark group-hover:text-scf-muted text-xs font-bold tracking-widest uppercase transition-colors">Community Events</p>
+            </div>
+        </section>
+
+        <!-- Uncropped Split Mission Section -->
+        <section class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-12 gap-16 items-center" id="mission">
+            <div class="md:col-span-5 gs-reveal w-full aspect-square bg-white border border-slate-200/60 p-6 rounded-[2.5rem]">
+                <div class="w-full h-full bg-slate-50 rounded-2xl overflow-hidden flex items-center justify-center">
+                    <img src="images/mission.png" alt="Mission Image" class="max-w-full max-h-full object-contain">
+                </div>
+            </div>
+            <div class="md:col-span-7 space-y-6 gs-reveal">
+                <h2 class="text-4xl font-black tracking-tight uppercase">Our Mission <span class="text-scf-accent">.</span></h2>
+                <div class="space-y-4 text-slate-600 font-light text-base leading-relaxed">
+                    <p>Our mission is to provide a safe and supportive environment where women and students can learn new skills, gain confidence, and achieve their dreams.</p>
+                    <p>We believe every individual deserves opportunities regardless of background, experience, or financial condition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Blocks Grid -->
+        <section class="max-w-6xl mx-auto px-6 py-32 space-y-16">
+            <h2 class="text-4xl font-black tracking-tight uppercase text-center">What We Do</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="gs-reveal bg-white rounded-3xl border border-slate-100 group flex flex-col p-5 shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden bg-scf-pearl flex items-center justify-center">
+                        <img src="images/education.png" alt="Education" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="pt-6 space-y-2 flex-1 flex flex-col justify-between">
+                        <h3 class="text-lg font-bold uppercase tracking-wide">Education Support</h3>
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">Helping students through guidance, mentorship, and learning opportunities.</p>
+                    </div>
+                </div>
+
+                <div class="gs-reveal bg-white rounded-3xl border border-slate-100 group flex flex-col p-5 shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden bg-scf-pearl flex items-center justify-center">
+                        <img src="images/skills.jpg" alt="skills" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="pt-6 space-y-2 flex-1 flex flex-col justify-between">
+                        <h3 class="text-lg font-bold uppercase tracking-wide">Skill Development</h3>
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">Organizing workshops and training programs for growth and confidence.</p>
+                    </div>
+                </div>
+
+                <div class="gs-reveal bg-white rounded-3xl border border-slate-100 group flex flex-col p-5 shadow-sm hover:shadow-xl transition-all duration-500 sm:col-span-2 lg:col-span-1">
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden bg-scf-pearl flex items-center justify-center">
+                        <img src="images/community.jpg" alt="community" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="pt-6 space-y-2 flex-1 flex flex-col justify-between">
+                        <h3 class="text-lg font-bold uppercase tracking-wide">Community Building</h3>
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">Creating supportive communities where everyone feels safe and motivated.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Uncropped Gallery Grid -->
+        <section class="max-w-6xl mx-auto px-6 py-20 space-y-16">
+            <h2 class="text-4xl font-black tracking-tight uppercase text-center">Our Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="gs-reveal bg-white border border-slate-100 p-3 rounded-2xl aspect-square flex items-center justify-center"><img src="images/gallery1.jpeg" class="max-w-full max-h-full object-contain" alt="Gallery"></div>
+                <div class="gs-reveal bg-white border border-slate-100 p-3 rounded-2xl aspect-square flex items-center justify-center"><img src="images/gallery2.jpg" class="max-w-full max-h-full object-contain" alt="Gallery"></div>
+                <div class="gs-reveal bg-white border border-slate-100 p-3 rounded-2xl aspect-square flex items-center justify-center"><img src="images/gallery3.jpg" class="max-w-full max-h-full object-contain" alt="Gallery"></div>
+                <div class="gs-reveal bg-white border border-slate-100 p-3 rounded-2xl aspect-square flex items-center justify-center"><img src="images/gallery4.avif" class="max-w-full max-h-full object-contain" alt="Gallery"></div>
+            </div>
+        </section>
+
+        <!-- Testimonial Editorial Block -->
+        <section class="gs-reveal max-w-4xl mx-auto text-center space-y-6 py-32 px-6">
+            <div class="text-scf-accent text-7xl font-serif opacity-30 leading-none">“</div>
+            <p class="text-2xl sm:text-4xl font-light text-scf-dark tracking-tight leading-relaxed italic">"She Can Foundation helped me gain confidence and improve my communication skills."</p>
+            <h4 class="font-bold text-xs tracking-widest uppercase text-scf-accent">— Priya Sharma</h4>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5 gs-reveal">
+                <h2 class="text-4xl font-black tracking-tight uppercase">Contact Us</h2>
+                <p class="text-sm text-scf-muted mt-2 font-light">Get in touch with our core foundation panel team layout.</p>
+            </div>
+            <div class="md:col-span-7 gs-reveal grid gap-4 w-full">
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center gap-4">
+                    <div class="p-3 bg-scf-pearl rounded-xl text-scf-accent"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                    <p class="text-sm"><strong>Email:</strong> shecanfoundation@gmail.com</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center gap-4">
+                    <div class="p-3 bg-scf-pearl rounded-xl text-scf-accent"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                    <p class="text-sm"><strong>Phone:</strong> +91 9876543210</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 flex items-center gap-4">
+                    <div class="p-3 bg-scf-pearl rounded-xl text-scf-accent"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                    <p class="text-sm"><strong>Location:</strong> India</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Call Block -->
+        <section class="gs-reveal bg-scf-dark text-white text-center py-32 px-6 relative overflow-hidden" id="join">
+            <div class="space-y-6 z-10 relative max-w-2xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-black tracking-tight uppercase">Join Our Mission</h2>
+                <p class="text-scf-muted font-light text-base max-w-lg mx-auto">Become part of our NGO and help us inspire change, support education, and empower women.</p>
+                <button class="bg-white text-scf-dark px-10 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-scf-accent hover:text-white transition-all duration-300" onclick="showMessage()">Join Us Today</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Studio Custom Footer -->
+    <footer class="bg-[#080809] text-scf-muted py-16 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-left">
+                <h3 class="text-lg font-black tracking-widest text-white uppercase">She Can Foundation</h3>
+                <p class="text-xs font-light max-w-xs mt-2">Empowering women through education, confidence, and opportunities.</p>
+            </div>
+            <div class="flex gap-8 text-xs uppercase tracking-widest font-bold">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">Facebook</a>
+            </div>
+            <p class="text-xs font-mono">© 2026 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

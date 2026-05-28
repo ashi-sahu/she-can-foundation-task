@@ -1,0 +1,53 @@
+/* ================= PREMIUM FOUNDATION CORE ENVIRONMENT ================= */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* Custom Text Stroke Vector Frameworks */
+
+.stroke-text {
+    -webkit-text-stroke: 1px #ffffff;
+    color: transparent;
+}
+
+.stroke-dark-text {
+    -webkit-text-stroke: 1px #0d0d0e;
+    color: transparent;
+}
+
+
+/* Fluid Linear Animation Core Top Track */
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #e27d9a;
+    z-index: 100000;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+
+/* Infinite Horizontal Marquee Track Loop */
+
+@keyframes continuousMarquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.marquee-track {
+    animation: continuousMarquee 24s linear infinite;
+}
+
+.gs-reveal {
+    will-change: transform, opacity;
+}
